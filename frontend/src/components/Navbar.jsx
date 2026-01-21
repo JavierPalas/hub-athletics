@@ -4,6 +4,31 @@ import logoHub from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  React.useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const controlNavbar = () => {
+      if (isOpen) {
+        setIsVisible(true);
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+    return () => window.removeEventListener('scroll', controlNavbar);
+  }, [isOpen]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -22,7 +47,9 @@ const Navbar = () => {
       zIndex: 1000,
       background: 'rgba(10, 10, 10, 0.95)',
       backdropFilter: 'blur(10px)',
-      borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+      borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+      transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+      transition: 'transform 0.3s ease-in-out'
     }}>
       <div className="container" style={{
         display: 'flex',
