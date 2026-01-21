@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Build outputs
+frontend/build/
+dist/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Deployment zip archives (optional, but good practice to exclude large binaries)
+*.zip
+*.tar.gz

@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /api/
+
+# Redirigir /api/leads a leads.php
+RewriteRule ^leads/?$ leads.php [L]
+
+# Redirigir raiz /api/ a index.php
+RewriteRule ^/?$ index.php [L]
