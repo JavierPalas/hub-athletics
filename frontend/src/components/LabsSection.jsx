@@ -33,7 +33,7 @@ const LabsSection = () => {
             icon: Dumbbell,
             title: 'Athlete LAB',
             subtitle: '',
-            description: 'Transformas tu cuerpo y tu capacidad física.',
+            description: 'Transformas tu cuerpo y tu capacidad física',
             trainerImage: trainerAthlete
         },
         {
@@ -41,7 +41,7 @@ const LabsSection = () => {
             icon: Activity,
             title: 'System LAB',
             subtitle: '',
-            description: 'Transformas tu forma de actuar cada día.',
+            description: 'Transformas tu forma de actuar cada día',
             trainerImage: trainerSystem
         },
         {
@@ -49,7 +49,7 @@ const LabsSection = () => {
             icon: Brain,
             title: 'Inner LAB',
             subtitle: '',
-            description: 'Transformas tu forma de pensar.',
+            description: 'Transformas tu forma de pensar',
             trainerImage: trainerInner
         }
     ];
@@ -330,7 +330,7 @@ const FlipCard = ({ lab, index, isVisible }) => {
                             color: 'var(--text-primary)',
                             marginBottom: '0.5rem'
                         }}>
-                            {lab.title}
+                            Head of {lab.title}
                         </h3>
                         <p style={{
                             fontSize: '0.9rem',

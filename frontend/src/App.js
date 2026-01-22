@@ -10,6 +10,7 @@ import LabsSection from "./components/LabsSection";
 import Transformacion from "./components/Transformacion";
 import Unete from "./components/Unete";
 import Footer from "./components/Footer";
+import CookieBanner from "./components/CookieBanner";
 import { Toaster } from "./components/ui/sonner";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Transformacion />
       <Unete />
       <Footer />
+      <CookieBanner />
       <Toaster />
     </div>
   );
