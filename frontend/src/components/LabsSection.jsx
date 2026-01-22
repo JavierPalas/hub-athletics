@@ -237,12 +237,13 @@ const FlipCard = ({ lab, index, isVisible }) => {
 
                     {/* Description */}
                     <p style={{
-                        fontSize: '0.9rem',
+                        fontSize: '0.95rem',
                         lineHeight: 1.6,
-                        color: 'var(--text-secondary)',
+                        color: 'var(--text-primary)', // Changed to primary for more brightness
                         maxWidth: '280px',
-                        textWrap: 'balance', // Makes the text wrapping look much more professional
-                        opacity: 0.8
+                        textWrap: 'balance',
+                        opacity: 1, // Full opacity
+                        fontWeight: 500 // Medium weight
                     }}>
                         {lab.description}
                     </p>
