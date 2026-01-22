@@ -20,7 +20,7 @@ Contiene la lógica del lado del servidor optimizada para funcionar en Hostinger
 * **`leads.php`**: Script que procesa el formulario de contacto y envía los emails al administrador.
 * **`schema.sql`**: Instrucciones para crear la tabla de datos en phpMyAdmin.
 
-### ⚪ `backend/` (Legacy / Histórico)
+### ⚪ `backend_py_backup/` (Legacy / Histórico)
 
 Contiene la versión original del backend en Python. Se mantiene como referencia histórica o copia de seguridad del desarrollo inicial. No se utiliza en la versión de producción actual (PHP).
 
