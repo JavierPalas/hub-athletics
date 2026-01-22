@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6f872347.css",
+    "main.js": "/static/js/main.0438eebf.js",
+    "static/media/gym-background.gif": "/static/media/gym-background.4932a0e1a9d1783970f5.gif",
+    "static/media/hublab.jpg": "/static/media/hublab.8cae4f8acfb271791d35.jpg",
+    "static/media/hero.jpg": "/static/media/hero.384a8bad68b89818a3ea.jpg",
+    "static/media/video-cover.jpg": "/static/media/video-cover.2a52be9f7f1a15e0a699.jpg",
+    "static/media/testimonial-3.jpg": "/static/media/testimonial-3.52d933b865819d11cef8.jpg",
+    "static/media/transformacion.jpg": "/static/media/transformacion.ba8f7e63c260bad51b71.jpg",
+    "static/media/testimonial-1.jpg": "/static/media/testimonial-1.58b43fcf140c862da03d.jpg",
+    "static/media/testimonial-2.jpg": "/static/media/testimonial-2.27e41cd30309c144fb34.jpg",
+    "static/media/logo.png": "/static/media/logo.e26b6e412bcf72fd3b06.png",
+    "index.html": "/index.html",
+    "main.6f872347.css.map": "/static/css/main.6f872347.css.map",
+    "main.0438eebf.js.map": "/static/js/main.0438eebf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6f872347.css",
+    "static/js/main.0438eebf.js"
+  ]
+}

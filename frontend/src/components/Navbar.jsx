@@ -8,6 +8,7 @@ const Navbar = () => {
 
   React.useEffect(() => {
     let lastScrollY = window.scrollY;
+    let scrollTimeout = null;
 
     const controlNavbar = () => {
       if (isOpen) {
@@ -24,10 +25,25 @@ const Navbar = () => {
       }
 
       lastScrollY = currentScrollY;
+
+      // Clear existing timeout
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+
+      // Show header after scroll stops for 1 second
+      scrollTimeout = setTimeout(() => {
+        setIsVisible(true);
+      }, 1000);
     };
 
     window.addEventListener('scroll', controlNavbar);
-    return () => window.removeEventListener('scroll', controlNavbar);
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+    };
   }, [isOpen]);
 
   const scrollToSection = (id) => {
