@@ -5,9 +5,9 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=UTF-8");
 
 $host = "localhost";
-$db_name = "u123456789_hubathletics"; // Cambiar por el nombre real en Hostinger
-$username = "u123456789_user";         // Cambiar por el usuario real
-$password = "TuPasswordSeguro123!";    // Cambiar por el password real
+$db_name = "u273474555_hub";
+$username = "u273474555_admin";
+$password = "@123456gO@";
 
 try {
     $conn = new PDO("mysql:host=" . $host . ";dbname=" . $db_name, $username, $password);

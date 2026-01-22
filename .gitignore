@@ -18,3 +18,12 @@ Thumbs.db
 # Deployment zip archives (optional, but good practice to exclude large binaries)
 *.zip
 *.tar.gz
+*.rar
+
+# Deployment folders
+hostinger_frontend/
+hostinger_backend/
+
+# Logs
+*.log
+debug*.txt

@@ -26,6 +26,22 @@ if ($method == 'POST') {
         $stmt->bindParam(":created_at", $created_at);
 
         if($stmt->execute()) {
+            // Enviar correo al administrador
+            $admin_email = "palas.javier@gmail.com";
+            $subject = "Nuevo Lead HUB ATHLETICS: " . $name;
+            $message_body = "Has recibido un nuevo lead desde la web:\n\n";
+            $message_body .= "Nombre: " . $name . "\n";
+            $message_body .= "Email: " . $email . "\n";
+            $message_body .= "Fecha: " . $created_at . "\n";
+            
+            // Cabeceras para asegurar mejor entrega
+            $headers = "From: no-reply@hubathletics.com\r\n";
+            $headers .= "Reply-To: " . $email . "\r\n";
+            $headers .= "X-Mailer: PHP/" . phpversion();
+
+            // Intentar enviar el correo (no bloquea la respuesta si falla)
+            @mail($admin_email, $subject, $message_body, $headers);
+
             http_response_code(201);
             echo json_encode(array(
                 "success" => true,
