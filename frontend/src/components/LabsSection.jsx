@@ -133,7 +133,7 @@ const LabsSection = () => {
                     position: relative;
                     width: 100%;
                     height: 100%;
-                    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
                     transform-style: preserve-3d;
                 }
                 .flip-card:hover .flip-card-inner {
