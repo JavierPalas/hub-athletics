@@ -4,7 +4,7 @@ import { toast } from '../components/ui/sonner';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+const API = BACKEND_URL ? `${BACKEND_URL}/api` : '/api';
 
 const Unete = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ const Unete = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Validación simple
     if (!formData.name || !formData.email) {
       toast.error("Por favor completa todos los campos");
@@ -30,10 +30,10 @@ const Unete = () => {
     }
 
     setIsSubmitting(true);
-    
+
     try {
       const response = await axios.post(`${API}/leads`, formData);
-      
+
       if (response.data.success) {
         toast.success(response.data.message || "¡Bienvenido al HUB! Nos pondremos en contacto contigo pronto.");
         setFormData({ name: '', email: '' });
@@ -42,17 +42,20 @@ const Unete = () => {
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      
+
       // Handle different error types
       if (error.response) {
         // Server responded with error status
-        const errorMessage = error.response.data?.detail || "Error al procesar tu solicitud";
+        console.error('Server error data:', error.response.data);
+        const errorMessage = error.response.data?.message || error.response.data?.detail || "Error al procesar tu solicitud";
         toast.error(errorMessage);
       } else if (error.request) {
         // Request was made but no response received
+        console.error('No response received:', error.request);
         toast.error("No se pudo conectar con el servidor. Por favor verifica tu conexión.");
       } else {
         // Something else happened
+        console.error('Error detail:', error.message);
         toast.error("Ocurrió un error inesperado. Por favor intenta nuevamente.");
       }
     } finally {
