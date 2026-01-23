@@ -1,7 +1,7 @@
 import React from 'react';
 import { mockData } from '../mock';
 import { Quote } from 'lucide-react';
-import transformationImage from '../assets/transformacion.jpg';
+import transformationImage from '../assets/runner-outdoor.png';
 
 const Transformacion = () => {
   return (
