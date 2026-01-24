@@ -120,27 +120,30 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  width: '44px',
-                  height: '44px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: '6px',
+                  width: '56px',
+                  height: '56px',
+                  background: 'rgba(237, 0, 140, 0.1)',
+                  border: '1px solid var(--accent-primary)',
+                  borderRadius: '12px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'var(--text-primary)',
-                  transition: 'background-color 0.3s ease, border-color 0.3s ease'
+                  transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                  boxShadow: '0 4px 15px rgba(237, 0, 140, 0.1)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'var(--accent-primary)';
-                  e.currentTarget.style.borderColor = 'var(--accent-primary)';
+                  e.currentTarget.style.transform = 'scale(1.1) translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(237, 0, 140, 0.4)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'var(--bg-card)';
-                  e.currentTarget.style.borderColor = 'var(--border-subtle)';
+                  e.currentTarget.style.background = 'rgba(237, 0, 140, 0.1)';
+                  e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(237, 0, 140, 0.1)';
                 }}
               >
-                <Instagram size={20} />
+                <Instagram size={28} />
               </a>
 
               <a
@@ -148,55 +151,30 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  width: '44px',
-                  height: '44px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: '6px',
+                  width: '56px',
+                  height: '56px',
+                  background: 'rgba(237, 0, 140, 0.1)',
+                  border: '1px solid var(--accent-primary)',
+                  borderRadius: '12px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'var(--text-primary)',
-                  transition: 'background-color 0.3s ease, border-color 0.3s ease'
+                  transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                  boxShadow: '0 4px 15px rgba(237, 0, 140, 0.1)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'var(--accent-primary)';
-                  e.currentTarget.style.borderColor = 'var(--accent-primary)';
+                  e.currentTarget.style.transform = 'scale(1.1) translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(237, 0, 140, 0.4)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'var(--bg-card)';
-                  e.currentTarget.style.borderColor = 'var(--border-subtle)';
+                  e.currentTarget.style.background = 'rgba(237, 0, 140, 0.1)';
+                  e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(237, 0, 140, 0.1)';
                 }}
               >
-                <Youtube size={20} />
-              </a>
-
-              <a
-                href={mockData.socialLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  width: '44px',
-                  height: '44px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: '6px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'var(--text-primary)',
-                  transition: 'background-color 0.3s ease, border-color 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'var(--accent-primary)';
-                  e.currentTarget.style.borderColor = 'var(--accent-primary)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'var(--bg-card)';
-                  e.currentTarget.style.borderColor = 'var(--border-subtle)';
-                }}
-              >
-                <Linkedin size={20} />
+                <Youtube size={28} />
               </a>
             </div>
           </div>

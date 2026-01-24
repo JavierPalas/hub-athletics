@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Instagram, Youtube } from 'lucide-react';
 import logoHub from '../assets/logo.png';
+import { mockData } from '../mock';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -145,6 +146,52 @@ const Navbar = () => {
           }}>
             Únete
           </button>
+
+          {/* Social Icons Desktop */}
+          <div style={{
+            display: 'flex',
+            gap: '1rem',
+            marginLeft: '0.5rem',
+            paddingLeft: '1.5rem',
+            borderLeft: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
+            <a href={mockData.socialLinks.instagram} target="_blank" rel="noopener noreferrer" style={{
+              color: 'var(--text-primary)',
+              transition: 'all 0.3s ease',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'var(--accent-primary)';
+                e.currentTarget.style.transform = 'scale(1.2)';
+                e.currentTarget.style.filter = 'drop-shadow(0 0 8px var(--accent-primary))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'var(--text-primary)';
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.filter = 'none';
+              }}>
+              <Instagram size={24} />
+            </a>
+            <a href={mockData.socialLinks.youtube} target="_blank" rel="noopener noreferrer" style={{
+              color: 'var(--text-primary)',
+              transition: 'all 0.3s ease',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'var(--accent-primary)';
+                e.currentTarget.style.transform = 'scale(1.2)';
+                e.currentTarget.style.filter = 'drop-shadow(0 0 8px var(--accent-primary))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'var(--text-primary)';
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.filter = 'none';
+              }}>
+              <Youtube size={24} />
+            </a>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -213,6 +260,41 @@ const Navbar = () => {
           <button onClick={() => scrollToSection('unete')} className="btn-primary">
             Únete
           </button>
+
+          {/* Social Icons Mobile */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '2rem',
+            padding: '1.5rem 0',
+            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+            marginTop: '1rem'
+          }}>
+            <a href={mockData.socialLinks.instagram} target="_blank" rel="noopener noreferrer" style={{
+              color: 'var(--accent-primary)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              textDecoration: 'none',
+              fontWeight: 600,
+              filter: 'drop-shadow(0 0 5px var(--accent-primary))'
+            }}>
+              <Instagram size={28} />
+              <span>Instagram</span>
+            </a>
+            <a href={mockData.socialLinks.youtube} target="_blank" rel="noopener noreferrer" style={{
+              color: 'var(--accent-primary)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              textDecoration: 'none',
+              fontWeight: 600,
+              filter: 'drop-shadow(0 0 5px var(--accent-primary))'
+            }}>
+              <Youtube size={28} />
+              <span>YouTube</span>
+            </a>
+          </div>
         </div>
       )}
 
