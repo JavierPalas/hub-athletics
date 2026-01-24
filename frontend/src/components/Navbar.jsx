@@ -150,46 +150,70 @@ const Navbar = () => {
           {/* Social Icons Desktop */}
           <div style={{
             display: 'flex',
-            gap: '1rem',
+            gap: '0.75rem',
             marginLeft: '0.5rem',
             paddingLeft: '1.5rem',
             borderLeft: '1px solid rgba(255, 255, 255, 0.1)'
           }}>
-            <a href={mockData.socialLinks.instagram} target="_blank" rel="noopener noreferrer" style={{
-              color: 'var(--text-primary)',
-              transition: 'all 0.3s ease',
-              display: 'flex',
-              alignItems: 'center'
-            }}
+            <a
+              href={mockData.socialLinks.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: '44px',
+                height: '44px',
+                background: 'rgba(237, 0, 140, 0.1)',
+                border: '1px solid var(--accent-primary)',
+                borderRadius: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--text-primary)',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                boxShadow: '0 4px 15px rgba(237, 0, 140, 0.1)'
+              }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--accent-primary)';
-                e.currentTarget.style.transform = 'scale(1.2)';
-                e.currentTarget.style.filter = 'drop-shadow(0 0 8px var(--accent-primary))';
+                e.currentTarget.style.background = 'var(--accent-primary)';
+                e.currentTarget.style.transform = 'scale(1.1) translateY(-3px)';
+                e.currentTarget.style.boxShadow = '0 10px 25px rgba(237, 0, 140, 0.4)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--text-primary)';
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.filter = 'none';
-              }}>
-              <Instagram size={24} />
+                e.currentTarget.style.background = 'rgba(237, 0, 140, 0.1)';
+                e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(237, 0, 140, 0.1)';
+              }}
+            >
+              <Instagram size={22} />
             </a>
-            <a href={mockData.socialLinks.youtube} target="_blank" rel="noopener noreferrer" style={{
-              color: 'var(--text-primary)',
-              transition: 'all 0.3s ease',
-              display: 'flex',
-              alignItems: 'center'
-            }}
+            <a
+              href={mockData.socialLinks.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: '44px',
+                height: '44px',
+                background: 'rgba(237, 0, 140, 0.1)',
+                border: '1px solid var(--accent-primary)',
+                borderRadius: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--text-primary)',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                boxShadow: '0 4px 15px rgba(237, 0, 140, 0.1)'
+              }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--accent-primary)';
-                e.currentTarget.style.transform = 'scale(1.2)';
-                e.currentTarget.style.filter = 'drop-shadow(0 0 8px var(--accent-primary))';
+                e.currentTarget.style.background = 'var(--accent-primary)';
+                e.currentTarget.style.transform = 'scale(1.1) translateY(-3px)';
+                e.currentTarget.style.boxShadow = '0 10px 25px rgba(237, 0, 140, 0.4)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--text-primary)';
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.filter = 'none';
-              }}>
-              <Youtube size={24} />
+                e.currentTarget.style.background = 'rgba(237, 0, 140, 0.1)';
+                e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(237, 0, 140, 0.1)';
+              }}
+            >
+              <Youtube size={22} />
             </a>
           </div>
         </div>

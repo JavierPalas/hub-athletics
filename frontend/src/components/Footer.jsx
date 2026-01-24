@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Instagram, Youtube, Linkedin, Mail } from 'lucide-react';
 import { mockData } from '../mock';
 import logoHub from '../assets/logo.png';
 
@@ -97,6 +97,50 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 style={{
+              fontWeight: 700,
+              marginBottom: '1rem',
+              fontSize: '1rem',
+              color: 'var(--text-primary)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
+            }}>
+              Contacto
+            </h4>
+            <a
+              href="mailto:info@hub-atheletics.com"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                color: 'var(--text-secondary)',
+                textDecoration: 'none',
+                fontSize: '0.95rem',
+                transition: 'color 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-primary)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+            >
+              <div style={{
+                width: '40px',
+                height: '40px',
+                background: 'rgba(237, 0, 140, 0.1)',
+                border: '1px solid var(--accent-primary)',
+                borderRadius: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--text-primary)',
+                transition: 'all 0.3s ease'
+              }}>
+                <Mail size={20} />
+              </div>
+              <span>info@hub-atheletics.com</span>
+            </a>
           </div>
 
           {/* Social Links */}

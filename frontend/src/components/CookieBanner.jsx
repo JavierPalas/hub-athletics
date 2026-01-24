@@ -1,38 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Cookie, X, Shield, Lock } from 'lucide-react';
 
 const CookieBanner = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [hasScrolled, setHasScrolled] = useState(false);
+    const hasTriggered = useRef(false);
 
     useEffect(() => {
         // Check if user has already made a choice
         const cookieConsent = localStorage.getItem('hubAthleticsCookieConsent');
         if (cookieConsent) return;
 
+        const showBanner = () => {
+            if (hasTriggered.current) return;
+            hasTriggered.current = true;
+
+            setIsVisible(true);
+            // Start animation after a brief delay for smoother effect
+            setTimeout(() => {
+                setIsAnimating(true);
+            }, 100);
+        };
+
         // Listen for scroll events
         const handleScroll = () => {
-            if (!hasScrolled && window.scrollY > 50) {
-                setHasScrolled(true);
-                setIsVisible(true);
-
-                // Start animation after a brief delay for smoother effect
-                setTimeout(() => {
-                    setIsAnimating(true);
-                }, 100);
-
-                // Remove listener once triggered
-                window.removeEventListener('scroll', handleScroll);
+            if (window.scrollY > 50) {
+                showBanner();
             }
         };
+
+        // Fallback: show after 3 seconds if user hasn't scrolled
+        const timer = setTimeout(() => {
+            showBanner();
+        }, 3000);
 
         window.addEventListener('scroll', handleScroll);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            clearTimeout(timer);
         };
-    }, [hasScrolled]);
+    }, []);
 
     const handleAcceptAll = () => {
         localStorage.setItem('hubAthleticsCookieConsent', 'all');
