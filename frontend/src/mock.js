@@ -53,7 +53,7 @@ export const mockData = {
 
   socialLinks: {
     instagram: "https://www.instagram.com/hubathletics/",
-    youtube: "https://www.youtube.com/@hub-athletics",
+    youtube: "https://www.youtube.com/@hubathletics",
     linkedin: "#"
   }
 };

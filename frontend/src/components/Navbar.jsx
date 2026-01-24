@@ -262,38 +262,63 @@ const Navbar = () => {
           </button>
 
           {/* Social Icons Mobile */}
+          {/* Social Icons Mobile - Discrete Floating Pill */}
           <div style={{
+            marginTop: 'auto',
+            paddingTop: '2rem',
             display: 'flex',
-            justifyContent: 'center',
-            gap: '2rem',
-            padding: '1.5rem 0',
-            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-            marginTop: '1rem'
+            justifyContent: 'center'
           }}>
-            <a href={mockData.socialLinks.instagram} target="_blank" rel="noopener noreferrer" style={{
-              color: 'var(--accent-primary)',
-              display: 'flex',
+            <div style={{
+              display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
-              textDecoration: 'none',
-              fontWeight: 600,
-              filter: 'drop-shadow(0 0 5px var(--accent-primary))'
+              gap: '2.5rem',
+              background: 'rgba(255, 255, 255, 0.03)',
+              padding: '1rem 3rem',
+              borderRadius: '100px',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              backdropFilter: 'blur(10px)',
+              boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
             }}>
-              <Instagram size={28} />
-              <span>Instagram</span>
-            </a>
-            <a href={mockData.socialLinks.youtube} target="_blank" rel="noopener noreferrer" style={{
-              color: 'var(--accent-primary)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              textDecoration: 'none',
-              fontWeight: 600,
-              filter: 'drop-shadow(0 0 5px var(--accent-primary))'
-            }}>
-              <Youtube size={28} />
-              <span>YouTube</span>
-            </a>
+              <a href={mockData.socialLinks.instagram} target="_blank" rel="noopener noreferrer" style={{
+                color: 'var(--text-primary)',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                opacity: 0.8
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--accent-primary)';
+                  e.currentTarget.style.opacity = '1';
+                  e.currentTarget.style.transform = 'scale(1.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--text-primary)';
+                  e.currentTarget.style.opacity = '0.8';
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}>
+                <Instagram size={24} />
+              </a>
+              <a href={mockData.socialLinks.youtube} target="_blank" rel="noopener noreferrer" style={{
+                color: 'var(--text-primary)',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                opacity: 0.8
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--accent-primary)';
+                  e.currentTarget.style.opacity = '1';
+                  e.currentTarget.style.transform = 'scale(1.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--text-primary)';
+                  e.currentTarget.style.opacity = '0.8';
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}>
+                <Youtube size={24} />
+              </a>
+            </div>
           </div>
         </div>
       )}
