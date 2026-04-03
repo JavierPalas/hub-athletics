@@ -37,19 +37,11 @@ const LabsSection = () => {
             trainerImage: trainerAthlete
         },
         {
-            id: 2,
-            icon: Activity,
-            title: 'System LAB',
-            subtitle: '',
-            description: 'Transformas tu forma de actuar cada día',
-            trainerImage: trainerSystem
-        },
-        {
             id: 3,
             icon: Brain,
-            title: 'Inner LAB',
+            title: 'System LAB',
             subtitle: '',
-            description: 'Transformas tu forma de pensar',
+            description: 'Transformas tu forma de pensar y empiezas a ejecutar',
             trainerImage: trainerInner
         }
     ];
@@ -58,7 +50,7 @@ const LabsSection = () => {
         <section
             id="labs"
             ref={sectionRef}
-            className="section section-darker"
+            className="section section-dark"
             style={{
                 position: 'relative',
                 overflow: 'hidden'
@@ -102,7 +94,7 @@ const LabsSection = () => {
                         color: 'var(--text-secondary)',
                         fontSize: '1.25rem'
                     }}>
-                        El método que te guía hacia el cambio real que llevas tiempo buscando.
+                        Un método, una visión, una cultura aplicada al día a día.
                     </p>
                 </div>
 

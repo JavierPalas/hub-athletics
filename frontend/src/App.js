@@ -5,7 +5,6 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Parallax from "./components/Parallax";
 import VideoSection from "./components/VideoSection";
-import HubLab from "./components/HubLab";
 import LabsSection from "./components/LabsSection";
 import Transformacion from "./components/Transformacion";
 import Unete from "./components/Unete";
@@ -19,10 +18,9 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <LabsSection />
       <Parallax />
       <VideoSection />
-      <HubLab />
-      <LabsSection />
       <Transformacion />
       <Unete />
       <Footer />

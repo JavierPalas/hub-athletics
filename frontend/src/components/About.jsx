@@ -5,18 +5,18 @@ const About = () => {
   const values = [
     {
       icon: Target,
-      title: "Disciplina",
-      description: "La base de cualquier transformación real. Sin atajos, sin excusas."
+      title: "Planificación deportiva",
+      description: "Entrenamiento adaptado al contexto de vida real de cada persona."
     },
     {
       icon: TrendingUp,
-      title: "Progreso Medible",
-      description: "Resultados tangibles en cada sesión. Datos sobre emociones."
+      title: "Sistematización de hábitos",
+      description: "Aplicación práctica para ordenar tu vida a través del deporte."
     },
     {
       icon: Users,
       title: "Comunidad",
-      description: "Rodearte de personas que comparten tu ambición y mentalidad."
+      description: "Entorno de personas con objetivos alineados."
     }
   ];
 
@@ -39,7 +39,7 @@ const About = () => {
               <span style={{
                 color: 'var(--accent-primary)',
                 fontWeight: 600,
-                fontSize: '0.875rem',
+                fontSize: '1.1rem',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase'
               }}>
@@ -51,7 +51,7 @@ const About = () => {
               marginBottom: '2rem',
               color: 'var(--text-primary)'
             }}>
-              Más que un gimnasio
+              Programa de entrenamiento resistencia
             </h2>
 
             <div style={{
@@ -62,19 +62,19 @@ const About = () => {
               <p className="body-medium" style={{
                 color: 'var(--text-secondary)'
               }}>
-                Hub Athletics nació de una convicción: <strong style={{ color: 'var(--text-primary)' }}>el progreso sostenible requiere método, no motivación pasajera</strong>.
+                que transforma los beneficios del deporte en herramientas para estructurar tu vida personal.
               </p>
 
               <p className="body-medium" style={{
                 color: 'var(--text-secondary)'
               }}>
-                Trabajamos con personas ambiciosas que entienden que la transformación física es solo el principio. Construimos un sistema completo que optimiza tu cuerpo, mente y hábitos diarios.
+                Está basado en el método <strong style={{ color: 'var(--text-primary)' }}>HUB LAB</strong>, un sistema que integra la planificación deportiva con la ejecución de hábitos que sostienen el rendimiento en el largo plazo.
               </p>
 
               <p className="body-medium" style={{
                 color: 'var(--text-secondary)'
               }}>
-                No vendemos inspiración vacía. Ofrecemos estructura, accountability y resultados medibles que se traducen en todas las áreas de tu vida.
+                Fundado por Fernando Broto y Javier Palacios, <strong style={{ color: 'var(--text-primary)' }}>HUB</strong> surge de una visión analítica del entrenamiento y el propósito de usar el deporte como medio de crecimiento personal.
               </p>
             </div>
           </div>

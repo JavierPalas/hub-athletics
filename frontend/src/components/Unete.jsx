@@ -94,7 +94,7 @@ const Unete = () => {
             <span style={{
               color: 'var(--accent-primary)',
               fontWeight: 600,
-              fontSize: '0.875rem',
+              fontSize: '1.1rem',
               letterSpacing: '0.15em',
               textTransform: 'uppercase'
             }}>
@@ -106,15 +106,10 @@ const Unete = () => {
               marginBottom: '1.5rem',
               color: 'var(--text-primary)'
             }}>
-              Únete al movimiento
+              Implementa el método HUB LAB
             </h2>
 
-            <p className="body-large" style={{
-              marginBottom: '2rem',
-              color: 'var(--text-secondary)'
-            }}>
-              El primer paso hacia tu transformación comienza aquí. Déjanos tus datos y nos pondremos en contacto para diseñar tu plan personalizado.
-            </p>
+
 
             <div style={{
               display: 'flex',
@@ -140,7 +135,7 @@ const Unete = () => {
                   1
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Completa el formulario</div>
+                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Rellena tus datos</div>
                   <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Compártenos tu información de contacto</div>
                 </div>
               </div>
@@ -164,7 +159,7 @@ const Unete = () => {
                   2
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Evaluación inicial</div>
+                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Exploración inicial</div>
                   <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Analizamos tu situación y objetivos</div>
                 </div>
               </div>
@@ -188,8 +183,8 @@ const Unete = () => {
                   3
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Comienza tu transformación</div>
-                  <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Arranca tu programa personalizado</div>
+                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Valoramos si tu perfil encaja</div>
+                  <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Análisis de idoneidad con el perfil que trabajamos</div>
                 </div>
               </div>
             </div>

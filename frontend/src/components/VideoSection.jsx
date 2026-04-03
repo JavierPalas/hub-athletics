@@ -18,7 +18,7 @@ const VideoSection = () => {
                     <span style={{
                         color: 'var(--accent-primary)',
                         fontWeight: 600,
-                        fontSize: '0.875rem',
+                        fontSize: '1.1rem',
                         letterSpacing: '0.15em',
                         textTransform: 'uppercase'
                     }}>

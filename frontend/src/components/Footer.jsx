@@ -49,7 +49,7 @@ const Footer = () => {
               letterSpacing: '0.1em',
               textTransform: 'uppercase'
             }}>
-              Obsessed with progress
+              Para atletas de resistencia
             </div>
           </div>
 
@@ -74,10 +74,9 @@ const Footer = () => {
               gap: '0.75rem'
             }}>
               {[
-                { name: 'Inicio', href: '#hero' },
                 { name: 'Nosotros', href: '#about' },
-                { name: 'HUB LAB', href: '#hublab' },
-                { name: 'Transformación', href: '#transformacion' },
+                { name: 'Programa', href: '#labs' },
+                { name: 'Resultados', href: '#transformacion' },
                 { name: 'Únete', href: '#unete' }
               ].map((link) => (
                 <li key={link.name}>
@@ -242,37 +241,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Hub Athletics. Todos los derechos reservados.
           </p>
 
-          <div style={{
-            display: 'flex',
-            gap: '2rem'
-          }}>
-            <a
-              href="#"
-              style={{
-                color: 'var(--text-muted)',
-                fontSize: '0.875rem',
-                textDecoration: 'none',
-                transition: 'color 0.3s ease'
-              }}
-              onMouseEnter={(e) => e.target.style.color = 'var(--accent-primary)'}
-              onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}
-            >
-              Política de Privacidad
-            </a>
-            <a
-              href="#"
-              style={{
-                color: 'var(--text-muted)',
-                fontSize: '0.875rem',
-                textDecoration: 'none',
-                transition: 'color 0.3s ease'
-              }}
-              onMouseEnter={(e) => e.target.style.color = 'var(--accent-primary)'}
-              onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}
-            >
-              Términos de Servicio
-            </a>
-          </div>
+
         </div>
       </div>
 

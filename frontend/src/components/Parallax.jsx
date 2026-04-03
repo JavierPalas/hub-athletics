@@ -85,7 +85,7 @@ const Parallax = () => {
           <span style={{
             color: 'var(--accent-primary)',
             fontWeight: 600,
-            fontSize: '0.875rem',
+            fontSize: '1.1rem',
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
             background: 'rgba(0,0,0,0.4)',
@@ -93,7 +93,7 @@ const Parallax = () => {
             borderRadius: '4px',
             backdropFilter: 'blur(4px)'
           }}>
-            Metodología Comprobada
+            Como trabajamos
           </span>
         </div>
 
@@ -105,7 +105,7 @@ const Parallax = () => {
           animation: 'fadeInUp 0.8s ease-out 0.4s forwards',
           fontSize: 'clamp(2.5rem, 5vw, 4rem)'
         }}>
-          Entrena como un atleta profesional
+          Programa Ultra-Personalizado
         </h2>
 
         <p className="body-large" style={{
@@ -117,46 +117,47 @@ const Parallax = () => {
           opacity: 0,
           animation: 'fadeInUp 0.8s ease-out 0.6s forwards'
         }}>
-          Equipamiento de primer nivel, coaching personalizado y una comunidad que te impulsa a superar tus límites cada día.
+          Lo fácil sería decirte que vas a ver resultados en una semana, pero no.<br /><strong style={{ color: 'var(--accent-primary)' }}>HUB LAB</strong> es implementar un método en tu vida que conlleva un proceso y está estructurado de la siguiente manera:
         </p>
 
         <div style={{
-          display: 'flex',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
           gap: '2rem',
           justifyContent: 'center',
-          flexWrap: 'wrap',
+          maxWidth: '560px',
+          margin: '0 auto',
           opacity: 0,
           animation: 'fadeInUp 0.8s ease-out 0.8s forwards'
         }}>
           {[
-            { number: '500+', label: 'Miembros Activos' },
-            { number: '15+', label: 'Años de Experiencia' },
-            { number: '98%', label: 'Satisfacción' }
+            { number: '24', label: 'Semanas' },
+            { number: '2', label: 'Reuniones Semanales' },
           ].map((stat, index) => (
             <div key={index} style={{
               textAlign: 'center',
-              flex: '1 1 150px',
               background: 'rgba(255,255,255,0.05)',
-              padding: '1.5rem',
-              borderRadius: '12px',
-              backdropFilter: 'blur(5px)',
-              border: '1px solid rgba(255,255,255,0.1)'
+              padding: '2rem 1.5rem',
+              borderRadius: '16px',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(237, 0, 140, 0.25)',
+              boxShadow: '0 4px 24px rgba(0,0,0,0.3)'
             }}>
               <div style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
                 fontWeight: 900,
                 color: 'var(--accent-primary)',
                 lineHeight: 1,
-                marginBottom: '0.5rem',
-                textShadow: '0 0 20px rgba(237, 0, 140, 0.4)'
+                marginBottom: '0.75rem',
+                textShadow: '0 0 20px rgba(237, 0, 140, 0.5)'
               }}>
                 {stat.number}
               </div>
               <div style={{
                 fontSize: '0.875rem',
-                color: 'rgba(255,255,255,0.8)',
+                color: 'rgba(255,255,255,0.85)',
                 textTransform: 'uppercase',
-                letterSpacing: '0.1em',
+                letterSpacing: '0.12em',
                 fontWeight: 600
               }}>
                 {stat.label}

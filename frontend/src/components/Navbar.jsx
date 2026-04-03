@@ -125,7 +125,7 @@ const Navbar = () => {
           }}
             onMouseEnter={(e) => e.target.style.color = 'var(--accent-primary)'}
             onMouseLeave={(e) => e.target.style.color = 'var(--text-primary)'}>
-            HUB LAB
+            Programa
           </button>
           <button onClick={() => scrollToSection('transformacion')} style={{
             background: 'none',
@@ -138,7 +138,7 @@ const Navbar = () => {
           }}
             onMouseEnter={(e) => e.target.style.color = 'var(--accent-primary)'}
             onMouseLeave={(e) => e.target.style.color = 'var(--text-primary)'}>
-            Transformación
+            Resultados
           </button>
           <button onClick={() => scrollToSection('unete')} className="btn-primary" style={{
             padding: '0.75rem 1.5rem',
@@ -267,7 +267,7 @@ const Navbar = () => {
             cursor: 'pointer',
             textAlign: 'left'
           }}>
-            HUB LAB
+            Programa
           </button>
           <button onClick={() => scrollToSection('transformacion')} style={{
             background: 'none',
@@ -279,7 +279,7 @@ const Navbar = () => {
             cursor: 'pointer',
             textAlign: 'left'
           }}>
-            Transformación
+            Resultados
           </button>
           <button onClick={() => scrollToSection('unete')} className="btn-primary">
             Únete

@@ -7,16 +7,16 @@ export const mockData = {
   testimonials: [
     {
       id: 1,
-      name: "Carlos Méndez",
-      role: "Emprendedor",
-      quote: "Hub Athletics no es solo entrenar. Es construir disciplina que aplicas en todos los aspectos de tu vida. Mi negocio y mi cuerpo nunca estuvieron mejor.",
+      name: "David Martínez",
+      role: "Half Ironman — 4h 47'",
+      quote: "David venía de haber dejado el deporte y de una etapa marcada por hábitos poco saludables, con una pérdida progresiva de ambición y confianza. En Hub entendió el papel que el deporte puede tener en su vida, alineando su día a día con objetivos concretos.",
       image: testimonial1
     },
     {
       id: 2,
-      name: "Ana Ruiz",
-      role: "Directora de Marketing",
-      quote: "El método HUB LAB transformó mi mentalidad. Ahora tengo claridad, energía y resultados medibles tanto en el gimnasio como en mi carrera.",
+      name: "Mario Lanceta",
+      role: "Maratón — 3h 10'",
+      quote: "Mario procede del deporte de equipo a alto nivel durante su infancia, partiendo de una buena base física pero sin experiencia en deportes de resistencia. En Hub afrontó el reto de debutar en maratón, estructurando su entrenamiento y su enfoque.",
       image: testimonial2
     },
     {

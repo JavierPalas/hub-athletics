@@ -93,7 +93,7 @@ const Hero = () => {
               position: 'relative',
               padding: '0 1rem'
             }}>
-              OBSESSED WITH PROGRESS
+              PARA ATLETAS DE RESISTENCIA
             </span>
           </div>
         </div>
