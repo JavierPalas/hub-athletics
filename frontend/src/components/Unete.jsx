@@ -9,7 +9,8 @@ const API = BACKEND_URL ? `${BACKEND_URL}/api` : '/api';
 const Unete = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: ''
+    email: '',
+    phone: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -24,7 +25,7 @@ const Unete = () => {
     e.preventDefault();
 
     // Validación simple
-    if (!formData.name || !formData.email) {
+    if (!formData.name || !formData.email || !formData.phone) {
       toast.error("Por favor completa todos los campos");
       return;
     }
@@ -36,7 +37,7 @@ const Unete = () => {
 
       if (response.data.success) {
         toast.success(response.data.message || "¡Bienvenido al HUB! Nos pondremos en contacto contigo pronto.");
-        setFormData({ name: '', email: '' });
+        setFormData({ name: '', email: '', phone: '' });
       } else {
         toast.error("Hubo un problema al enviar tu información. Por favor intenta nuevamente.");
       }
@@ -255,6 +256,40 @@ const Unete = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="tu@email.com"
+                  style={{
+                    width: '100%',
+                    padding: '1rem',
+                    background: 'var(--bg-primary)',
+                    border: '1px solid var(--border-subtle)',
+                    borderRadius: '6px',
+                    color: 'var(--text-primary)',
+                    fontSize: '1rem',
+                    transition: 'border-color 0.3s ease'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
+                  onBlur={(e) => e.target.style.borderColor = 'var(--border-subtle)'}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" style={{
+                  display: 'block',
+                  marginBottom: '0.5rem',
+                  fontWeight: 600,
+                  fontSize: '0.875rem',
+                  color: 'var(--text-primary)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em'
+                }}>
+                  Teléfono
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+34 600 000 000"
                   style={{
                     width: '100%',
                     padding: '1rem',

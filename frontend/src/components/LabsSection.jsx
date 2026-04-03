@@ -80,7 +80,7 @@ const LabsSection = () => {
                     <h2 className="heading-1" style={{
                         marginTop: '1rem',
                         marginBottom: '1.5rem',
-                        color: 'var(--text-primary)',
+                        color: 'var(--accent-primary)',
                         fontSize: 'clamp(3rem, 5vw, 4rem)', // Increased size for HUB LAB
                         textTransform: 'uppercase', // Ensuring it matches the look
                         letterSpacing: '0.02em'

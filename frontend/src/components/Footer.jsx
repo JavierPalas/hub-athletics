@@ -111,7 +111,7 @@ const Footer = () => {
               Contacto
             </h4>
             <a
-              href="mailto:info@hub-atheletics.com"
+              href="mailto:hubathletics1@gmail.com"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -138,7 +138,7 @@ const Footer = () => {
               }}>
                 <Mail size={20} />
               </div>
-              <span>info@hub-atheletics.com</span>
+              <span>hubathletics1@gmail.com</span>
             </a>
           </div>
 

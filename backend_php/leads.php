@@ -20,13 +20,14 @@ function sendResponse($success, $message, $data = null, $httpCode = 200) {
 }
 
 // Función para enviar email de notificación
-function sendNotificationEmail($name, $email, $created_at) {
-    $admin_email = "palas.javier@gmail.com";
+function sendNotificationEmail($name, $email, $phone, $created_at) {
+    $admin_email = "hubathletics1@gmail.com";
     $subject = "=?UTF-8?B?" . base64_encode("Nuevo Lead HUB ATHLETICS: " . $name) . "?=";
     
     $message_body = "Has recibido un nuevo lead desde la web:\n\n";
     $message_body .= "Nombre: " . $name . "\n";
     $message_body .= "Email: " . $email . "\n";
+    $message_body .= "Teléfono: " . ($phone ? $phone : "No proporcionado") . "\n";
     $message_body .= "Fecha: " . $created_at . "\n";
     
     $headers = [];
@@ -69,24 +70,26 @@ if ($method === 'POST') {
     // Sanitizar datos
     $name = htmlspecialchars(strip_tags(trim($data->name)));
     $email = filter_var(trim($data->email), FILTER_SANITIZE_EMAIL);
+    $phone = isset($data->phone) ? htmlspecialchars(strip_tags(trim($data->phone))) : null;
     $id = uniqid('lead_', true);
     $created_at = date('Y-m-d H:i:s');
     $source = "web_form";
 
     try {
         // Insertar en la base de datos
-        $query = "INSERT INTO leads (id, name, email, source, created_at) VALUES (:id, :name, :email, :source, :created_at)";
+        $query = "INSERT INTO leads (id, name, email, phone, source, created_at) VALUES (:id, :name, :email, :phone, :source, :created_at)";
         $stmt = $conn->prepare($query);
 
         $stmt->bindParam(":id", $id, PDO::PARAM_STR);
         $stmt->bindParam(":name", $name, PDO::PARAM_STR);
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindParam(":phone", $phone, PDO::PARAM_STR);
         $stmt->bindParam(":source", $source, PDO::PARAM_STR);
         $stmt->bindParam(":created_at", $created_at, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
             // Intentar enviar email (no bloquea la respuesta si falla)
-            sendNotificationEmail($name, $email, $created_at);
+            sendNotificationEmail($name, $email, $phone, $created_at);
 
             sendResponse(
                 true,
