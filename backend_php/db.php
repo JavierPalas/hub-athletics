@@ -11,7 +11,7 @@ function getAllowedOrigins()
 {
     $configuredOrigins = getEnvOrDefault(
         'CORS_ALLOWED_ORIGINS',
-        'https://vibe.hub-athletics.com,http://localhost:3000'
+        'https://vibe.hub-atheltics.com,http://localhost:3000'
     );
 
     return array_values(array_filter(array_map('trim', explode(',', $configuredOrigins))));
@@ -53,8 +53,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'OPTIONS') {
 
 $host = getEnvOrDefault('DB_HOST', 'localhost');
 $db_name = getEnvOrDefault('DB_NAME', 'u273474555_hub');
-$username = getEnvOrDefault('DB_USERNAME', 'root');
-$password = getEnvOrDefault('DB_PASSWORD', '');
+$username = getEnvOrDefault('DB_USERNAME', 'u273474555_admin');
+$password = getEnvOrDefault('DB_PASSWORD', '@123456gO@');
 
 $conn = null;
 
