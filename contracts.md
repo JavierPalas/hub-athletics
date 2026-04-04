@@ -1,148 +1,111 @@
-# Hub Athletics - Contrato de Integración Frontend-Backend
+# Hub Athletics - Contrato de Integracion Frontend-Backend
 
-## 1. DATOS MOCKEADOS EN FRONTEND
+Este documento describe la integracion real del proyecto activo.
 
-### Archivo: `/app/frontend/src/mock.js`
-- **Testimonios**: Array de 3 testimonios con estructura {id, name, role, quote, image}
-- **Beneficios HUB LAB**: Array de 4 beneficios con {id, title, description}
-- **Enlaces Sociales**: {instagram, youtube, linkedin} - actualmente con "#"
+## 1. Datos estaticos en frontend
 
-**Nota**: Los testimonios y beneficios permanecerán como datos estáticos en el frontend (no requieren backend).
+Archivo: `frontend/src/mock.js`
 
-## 2. FUNCIONALIDAD A IMPLEMENTAR EN BACKEND
+- `testimonials`: testimonios mostrados en la landing.
+- `hubLabBenefits`: beneficios del metodo HUB LAB.
+- `socialLinks`: enlaces a Instagram y YouTube.
 
-### 2.1 Modelo de Datos - Leads/Contactos
-Colección: `leads`
+Estos datos siguen siendo estaticos y no dependen de backend.
 
-```javascript
-{
-  _id: ObjectId,
-  name: String (requerido),
-  email: String (requerido, formato email),
-  createdAt: DateTime (auto-generado),
-  source: String (default: "web_form")
-}
-```
+## 2. Modelo de datos actual
 
-### 2.2 API Endpoints
+Tabla MySQL: `leads`
 
-#### POST `/api/leads`
-**Descripción**: Crear un nuevo lead desde el formulario de contacto
-
-**Request Body**:
 ```json
 {
-  "name": "Carlos Méndez",
-  "email": "carlos@example.com"
+  "id": "lead_...",
+  "name": "Carlos Mendez",
+  "email": "carlos@example.com",
+  "phone": "+34 600 000 000",
+  "source": "web_form",
+  "created_at": "2026-04-05 10:30:00"
 }
 ```
 
-**Response Success (201)**:
+Reglas:
+
+- `name`: obligatorio, minimo 2 caracteres.
+- `email`: obligatorio, formato valido y unico.
+- `phone`: obligatorio, minimo 7 caracteres.
+- `source`: se guarda como `web_form`.
+
+## 3. API disponible
+
+### `GET /api`
+
+Respuesta de estado de la API.
+
+### `POST /api/leads`
+
+Crea un nuevo lead desde el formulario de la landing.
+
+Request body:
+
+```json
+{
+  "name": "Carlos Mendez",
+  "email": "carlos@example.com",
+  "phone": "+34 600 000 000"
+}
+```
+
+Respuesta correcta:
+
 ```json
 {
   "success": true,
-  "message": "Lead registrado exitosamente",
+  "message": "Bienvenido al HUB. Nos pondremos en contacto contigo pronto.",
   "data": {
-    "_id": "...",
-    "name": "Carlos Méndez",
+    "id": "lead_...",
+    "name": "Carlos Mendez",
     "email": "carlos@example.com",
-    "createdAt": "2025-12-25T16:00:00Z",
-    "source": "web_form"
+    "phone": "+34 600 000 000",
+    "created_at": "2026-04-05 10:30:00"
   }
 }
 ```
 
-**Response Error (400)**:
-```json
-{
-  "success": false,
-  "message": "Error de validación",
-  "errors": ["Email inválido", "Nombre requerido"]
-}
-```
+Errores previstos:
 
-**Response Error (500)**:
-```json
-{
-  "success": false,
-  "message": "Error del servidor"
-}
-```
+- `400`: campos incompletos o formato invalido.
+- `409`: email ya registrado.
+- `500`: error interno.
 
-## 3. INTEGRACIÓN FRONTEND-BACKEND
+## 4. Integracion en frontend
 
-### 3.1 Archivo a Modificar: `/app/frontend/src/components/Unete.jsx`
+Archivo principal: `frontend/src/components/Unete.jsx`
 
-**Cambios necesarios**:
-1. Importar axios y BACKEND_URL
-2. Reemplazar el mock setTimeout con llamada real a la API
-3. Manejar respuestas de éxito y error del backend
-4. Mostrar mensajes apropiados usando toast
+Comportamiento actual:
 
-**Código a reemplazar**:
-```javascript
-// ANTES (Mock)
-setTimeout(() => {
-  console.log('Form submitted (mock):', formData);
-  toast({ title: "¡Bienvenido al HUB!", ... });
-  ...
-}, 1000);
+1. El usuario completa nombre, email y telefono.
+2. El frontend limpia espacios y valida campos requeridos.
+3. Se envia `POST` a `${REACT_APP_BACKEND_URL}/api/leads` o a `/api/leads` si no hay variable.
+4. Se muestra toast de exito o error segun respuesta.
 
-// DESPUÉS (Backend Real)
-const response = await axios.post(`${API}/leads`, formData);
-if (response.data.success) {
-  toast({ title: "¡Bienvenido al HUB!", ... });
-  ...
-}
-```
-
-## 4. VALIDACIONES
-
-### Backend
-- Email válido (formato)
-- Nombre no vacío (mínimo 2 caracteres)
-- Email único (opcional: verificar duplicados)
+## 5. Configuracion
 
 ### Frontend
-- Ya implementado: validación de campos requeridos
-- Validación de formato email (HTML5)
 
-## 5. TESTING
+- `REACT_APP_BACKEND_URL=https://vibe.hub-athletics.com`
 
-### Backend Testing
-1. POST con datos válidos → 201 success
-2. POST sin nombre → 400 error
-3. POST sin email → 400 error
-4. POST con email inválido → 400 error
+### Backend
 
-### Frontend Testing
-1. Envío de formulario exitoso → Toast de éxito + limpieza de campos
-2. Error de red → Toast de error
-3. Validación de campos vacíos → Toast de error
+- `DB_HOST`
+- `DB_NAME`
+- `DB_USERNAME`
+- `DB_PASSWORD`
+- `CORS_ALLOWED_ORIGINS`
 
-## 6. FLUJO COMPLETO
+## 6. Casos de prueba recomendados
 
-1. Usuario completa formulario (nombre + email)
-2. Click en "Empezar ahora"
-3. Frontend valida campos (no vacíos)
-4. Frontend envía POST a `/api/leads`
-5. Backend valida datos
-6. Backend guarda en MongoDB colección `leads`
-7. Backend responde con success
-8. Frontend muestra toast de éxito
-9. Frontend limpia formulario
-
-## 7. ARCHIVOS A CREAR/MODIFICAR
-
-### Backend (Crear)
-- `/app/backend/models/lead.py` - Modelo Pydantic
-- `/app/backend/routes/leads.py` - Endpoints API
-
-### Backend (Modificar)
-- `/app/backend/server.py` - Importar y registrar router de leads
-
-### Frontend (Modificar)
-- `/app/frontend/src/components/Unete.jsx` - Integrar con API real
-
-### Frontend (Eliminar código mock)
-- Remover setTimeout y lógica simulada
+1. Alta valida con nombre, email y telefono.
+2. Error por nombre vacio.
+3. Error por email vacio.
+4. Error por telefono vacio.
+5. Error por email invalido.
+6. Error por email duplicado.

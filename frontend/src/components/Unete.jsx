@@ -4,7 +4,24 @@ import { toast } from '../components/ui/sonner';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = BACKEND_URL ? `${BACKEND_URL}/api` : '/api';
+const LEADS_ENDPOINT = process.env.REACT_APP_LEADS_ENDPOINT;
+
+const getApiBase = () => {
+  if (typeof window !== 'undefined') {
+    const { hostname, pathname } = window.location;
+    const isLocalHost = hostname === 'localhost' || hostname === '127.0.0.1';
+
+    if (isLocalHost && pathname.startsWith('/hub-athletics')) {
+      return '/hub-athletics/backend_php';
+    }
+  }
+
+  if (BACKEND_URL) {
+    return `${BACKEND_URL.replace(/\/$/, '').replace(/\/api$/, '')}/api`;
+  }
+
+  return '/api';
+};
 
 const Unete = () => {
   const [formData, setFormData] = useState({
@@ -24,40 +41,42 @@ const Unete = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación simple
-    if (!formData.name || !formData.email || !formData.phone) {
-      toast.error("Por favor completa todos los campos");
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim()
+    };
+
+    if (!payload.name || !payload.email || !payload.phone) {
+      toast.error('Por favor completa nombre, email y telefono');
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post(`${API}/leads`, formData);
+      const endpoint = LEADS_ENDPOINT || `${getApiBase()}/leads.php`.replace('/api/leads.php', '/api/leads');
+      const response = await axios.post(endpoint, payload);
 
       if (response.data.success) {
-        toast.success(response.data.message || "¡Bienvenido al HUB! Nos pondremos en contacto contigo pronto.");
+        toast.success(response.data.message || 'Bienvenido al HUB. Nos pondremos en contacto contigo pronto.');
         setFormData({ name: '', email: '', phone: '' });
       } else {
-        toast.error("Hubo un problema al enviar tu información. Por favor intenta nuevamente.");
+        toast.error('Hubo un problema al enviar tu informacion. Por favor intenta de nuevo.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
 
-      // Handle different error types
       if (error.response) {
-        // Server responded with error status
         console.error('Server error data:', error.response.data);
-        const errorMessage = error.response.data?.message || error.response.data?.detail || "Error al procesar tu solicitud";
+        const errorMessage = error.response.data?.message || error.response.data?.detail || 'Error al procesar tu solicitud';
         toast.error(errorMessage);
       } else if (error.request) {
-        // Request was made but no response received
         console.error('No response received:', error.request);
-        toast.error("No se pudo conectar con el servidor. Por favor verifica tu conexión.");
+        toast.error('No se pudo conectar con el servidor. Por favor verifica tu conexion.');
       } else {
-        // Something else happened
         console.error('Error detail:', error.message);
-        toast.error("Ocurrió un error inesperado. Por favor intenta nuevamente.");
+        toast.error('Ocurrio un error inesperado. Por favor intenta nuevamente.');
       }
     } finally {
       setIsSubmitting(false);
@@ -68,7 +87,6 @@ const Unete = () => {
     <section id="unete" className="section section-dark" style={{
       position: 'relative'
     }}>
-      {/* Background Pattern */}
       <div style={{
         position: 'absolute',
         top: 0,
@@ -90,7 +108,6 @@ const Unete = () => {
           gap: '4rem',
           alignItems: 'center'
         }}>
-          {/* Left Column - Content */}
           <div>
             <span style={{
               color: 'var(--accent-primary)',
@@ -99,7 +116,7 @@ const Unete = () => {
               letterSpacing: '0.15em',
               textTransform: 'uppercase'
             }}>
-              Empieza Hoy
+              Empieza hoy
             </span>
 
             <h2 className="heading-1" style={{
@@ -107,10 +124,8 @@ const Unete = () => {
               marginBottom: '1.5rem',
               color: 'var(--text-primary)'
             }}>
-              Implementa el método HUB LAB
+              Implementa el metodo HUB LAB
             </h2>
-
-
 
             <div style={{
               display: 'flex',
@@ -138,7 +153,7 @@ const Unete = () => {
                 </div>
                 <div>
                   <div style={{ fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.4rem' }}>Rellena tus datos</div>
-                  <div style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Compártenos tu información de contacto</div>
+                  <div style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Compartenos tu informacion de contacto</div>
                 </div>
               </div>
 
@@ -162,8 +177,8 @@ const Unete = () => {
                   2
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.4rem' }}>Exploración inicial</div>
-                  <div style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Analizamos tu situación y objetivos</div>
+                  <div style={{ fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.4rem' }}>Exploracion inicial</div>
+                  <div style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Analizamos tu situacion y objetivos</div>
                 </div>
               </div>
 
@@ -188,13 +203,12 @@ const Unete = () => {
                 </div>
                 <div>
                   <div style={{ fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.4rem' }}>Valoramos si tu perfil encaja</div>
-                  <div style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Análisis de idoneidad con el perfil que trabajamos</div>
+                  <div style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Analisis de idoneidad con el perfil que trabajamos</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Form */}
           <div style={{
             background: 'var(--bg-card)',
             border: '1px solid var(--border-subtle)',
@@ -216,25 +230,18 @@ const Unete = () => {
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
                 }}>
-                  Nombre Completo
+                  Nombre completo
                 </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Tu nombre"
-                  style={{
-                    width: '100%',
-                    padding: '1rem',
-                    background: 'var(--bg-primary)',
-                    border: '1px solid var(--border-subtle)',
-                    borderRadius: '6px',
-                    color: 'var(--text-primary)',
-                    fontSize: '1.20rem',
-                    transition: 'border-color 0.3s ease'
-                  }}
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Tu nombre" required style={{
+                  width: '100%',
+                  padding: '1rem',
+                  background: 'var(--bg-primary)',
+                  border: '1px solid var(--border-subtle)',
+                  borderRadius: '6px',
+                  color: 'var(--text-primary)',
+                  fontSize: '1.20rem',
+                  transition: 'border-color 0.3s ease'
+                }}
                   onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
                   onBlur={(e) => e.target.style.borderColor = 'var(--border-subtle)'}
                 />
@@ -250,25 +257,18 @@ const Unete = () => {
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
                 }}>
-                  Correo Electrónico
+                  Correo electronico
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="tu@email.com"
-                  style={{
-                    width: '100%',
-                    padding: '1rem',
-                    background: 'var(--bg-primary)',
-                    border: '1px solid var(--border-subtle)',
-                    borderRadius: '6px',
-                    color: 'var(--text-primary)',
-                    fontSize: '1.20rem',
-                    transition: 'border-color 0.3s ease'
-                  }}
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="tu@email.com" required style={{
+                  width: '100%',
+                  padding: '1rem',
+                  background: 'var(--bg-primary)',
+                  border: '1px solid var(--border-subtle)',
+                  borderRadius: '6px',
+                  color: 'var(--text-primary)',
+                  fontSize: '1.20rem',
+                  transition: 'border-color 0.3s ease'
+                }}
                   onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
                   onBlur={(e) => e.target.style.borderColor = 'var(--border-subtle)'}
                 />
@@ -284,25 +284,18 @@ const Unete = () => {
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
                 }}>
-                  Teléfono
+                  Telefono
                 </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="+34 600 000 000"
-                  style={{
-                    width: '100%',
-                    padding: '1rem',
-                    background: 'var(--bg-primary)',
-                    border: '1px solid var(--border-subtle)',
-                    borderRadius: '6px',
-                    color: 'var(--text-primary)',
-                    fontSize: '1.20rem',
-                    transition: 'border-color 0.3s ease'
-                  }}
+                <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+34 600 000 000" required style={{
+                  width: '100%',
+                  padding: '1rem',
+                  background: 'var(--bg-primary)',
+                  border: '1px solid var(--border-subtle)',
+                  borderRadius: '6px',
+                  color: 'var(--text-primary)',
+                  fontSize: '1.20rem',
+                  transition: 'border-color 0.3s ease'
+                }}
                   onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
                   onBlur={(e) => e.target.style.borderColor = 'var(--border-subtle)'}
                 />
@@ -332,7 +325,7 @@ const Unete = () => {
                 textAlign: 'center',
                 lineHeight: 1.5
               }}>
-                Al enviar este formulario, aceptas que nos pongamos en contacto contigo para ofrecerte información sobre nuestros programas.
+                Al enviar este formulario, aceptas que nos pongamos en contacto contigo para ofrecerte informacion sobre nuestros programas.
               </p>
             </form>
           </div>
