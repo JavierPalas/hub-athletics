@@ -132,7 +132,7 @@ const CookieBanner = () => {
                         <h3 style={{
                             fontFamily: "'Montserrat', 'Inter', sans-serif",
                             fontWeight: 700,
-                            fontSize: '0.95rem',
+                            fontSize: '1.14rem',
                             color: 'var(--text-primary)',
                             margin: 0
                         }}>
@@ -142,7 +142,7 @@ const CookieBanner = () => {
 
                     {/* Text Content */}
                     <p style={{
-                        fontSize: '0.85rem',
+                        fontSize: '1.02rem',
                         lineHeight: 1.5,
                         color: 'var(--text-secondary)',
                         margin: 0
@@ -162,7 +162,7 @@ const CookieBanner = () => {
                             style={{
                                 fontFamily: "'Inter', sans-serif",
                                 fontWeight: 600,
-                                fontSize: '0.85rem',
+                                fontSize: '1.02rem',
                                 padding: '0.7rem 1.25rem',
                                 background: 'linear-gradient(135deg, var(--accent-primary) 0%, #ff1493 100%)',
                                 border: 'none',
@@ -191,7 +191,7 @@ const CookieBanner = () => {
                             style={{
                                 fontFamily: "'Inter', sans-serif",
                                 fontWeight: 500,
-                                fontSize: '0.8rem',
+                                fontSize: '0.96rem',
                                 padding: '0.6rem 1rem',
                                 background: 'transparent',
                                 border: '1px solid rgba(255, 255, 255, 0.15)',

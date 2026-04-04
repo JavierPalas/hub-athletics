@@ -73,19 +73,19 @@ body {
 }
 
 .body-large {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   color: var(--text-secondary);
 }
 
 .body-medium {
-  font-size: 1.125rem;
+  font-size: 1.35rem;
   line-height: 1.6;
   color: var(--text-secondary);
 }
 
 .body-small {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   color: var(--text-secondary);
 }

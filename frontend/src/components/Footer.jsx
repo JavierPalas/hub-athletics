@@ -36,7 +36,7 @@ const Footer = () => {
             </div>
             <p style={{
               color: 'var(--text-secondary)',
-              fontSize: '0.95rem',
+              fontSize: '1.14rem',
               lineHeight: 1.6,
               marginBottom: '1.5rem'
             }}>
@@ -45,7 +45,7 @@ const Footer = () => {
             <div style={{
               fontWeight: 600,
               color: 'var(--accent-primary)',
-              fontSize: '0.875rem',
+              fontSize: '1.05rem',
               letterSpacing: '0.1em',
               textTransform: 'uppercase'
             }}>
@@ -58,7 +58,7 @@ const Footer = () => {
             <h4 style={{
               fontWeight: 700,
               marginBottom: '1rem',
-              fontSize: '1rem',
+              fontSize: '1.20rem',
               color: 'var(--text-primary)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em'
@@ -85,7 +85,7 @@ const Footer = () => {
                     style={{
                       color: 'var(--text-secondary)',
                       textDecoration: 'none',
-                      fontSize: '0.95rem',
+                      fontSize: '1.14rem',
                       transition: 'color 0.3s ease'
                     }}
                     onMouseEnter={(e) => e.target.style.color = 'var(--accent-primary)'}
@@ -103,7 +103,7 @@ const Footer = () => {
             <h4 style={{
               fontWeight: 700,
               marginBottom: '1rem',
-              fontSize: '1rem',
+              fontSize: '1.20rem',
               color: 'var(--text-primary)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em'
@@ -118,7 +118,7 @@ const Footer = () => {
                 gap: '0.75rem',
                 color: 'var(--text-secondary)',
                 textDecoration: 'none',
-                fontSize: '0.95rem',
+                fontSize: '1.14rem',
                 transition: 'color 0.3s ease'
               }}
               onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-primary)'}
@@ -147,7 +147,7 @@ const Footer = () => {
             <h4 style={{
               fontWeight: 700,
               marginBottom: '1rem',
-              fontSize: '1rem',
+              fontSize: '1.20rem',
               color: 'var(--text-primary)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em'
@@ -235,7 +235,7 @@ const Footer = () => {
         }}>
           <p style={{
             color: 'var(--text-muted)',
-            fontSize: '0.875rem',
+            fontSize: '1.05rem',
             margin: 0
           }}>
             © {new Date().getFullYear()} Hub Athletics. Todos los derechos reservados.

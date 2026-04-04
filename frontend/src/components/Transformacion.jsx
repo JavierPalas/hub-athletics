@@ -13,7 +13,7 @@ const Transformacion = () => {
           <span style={{
             color: 'var(--accent-primary)',
             fontWeight: 600,
-            fontSize: '1.1rem',
+            fontSize: '1.32rem',
             letterSpacing: '0.15em',
             textTransform: 'uppercase'
           }}>
@@ -94,7 +94,7 @@ const Transformacion = () => {
                     {testimonial.name}
                   </div>
                   <div style={{
-                    fontSize: '0.875rem',
+                    fontSize: '1.05rem',
                     color: 'var(--text-secondary)'
                   }}>
                     {testimonial.role}

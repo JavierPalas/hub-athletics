@@ -85,7 +85,7 @@ const Parallax = () => {
           <span style={{
             color: 'var(--accent-primary)',
             fontWeight: 600,
-            fontSize: '1.1rem',
+            fontSize: '1.32rem',
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
             background: 'rgba(0,0,0,0.4)',
@@ -154,7 +154,7 @@ const Parallax = () => {
                 {stat.number}
               </div>
               <div style={{
-                fontSize: '0.875rem',
+                fontSize: '1.05rem',
                 color: 'rgba(255,255,255,0.85)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.12em',

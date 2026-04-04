@@ -106,7 +106,7 @@ const Navbar = () => {
             border: 'none',
             color: 'var(--text-primary)',
             fontWeight: 500,
-            fontSize: '1rem',
+            fontSize: '1.20rem',
             cursor: 'pointer',
             transition: 'color 0.3s ease'
           }}
@@ -119,7 +119,7 @@ const Navbar = () => {
             border: 'none',
             color: 'var(--text-primary)',
             fontWeight: 500,
-            fontSize: '1rem',
+            fontSize: '1.20rem',
             cursor: 'pointer',
             transition: 'color 0.3s ease'
           }}
@@ -132,7 +132,7 @@ const Navbar = () => {
             border: 'none',
             color: 'var(--text-primary)',
             fontWeight: 500,
-            fontSize: '1rem',
+            fontSize: '1.20rem',
             cursor: 'pointer',
             transition: 'color 0.3s ease'
           }}
@@ -142,7 +142,7 @@ const Navbar = () => {
           </button>
           <button onClick={() => scrollToSection('unete')} className="btn-primary" style={{
             padding: '0.75rem 1.5rem',
-            fontSize: '0.9rem'
+            fontSize: '1.08rem'
           }}>
             Únete
           </button>
@@ -250,7 +250,7 @@ const Navbar = () => {
             border: 'none',
             color: 'var(--text-primary)',
             fontWeight: 500,
-            fontSize: '1.1rem',
+            fontSize: '1.32rem',
             padding: '1rem',
             cursor: 'pointer',
             textAlign: 'left'
@@ -262,7 +262,7 @@ const Navbar = () => {
             border: 'none',
             color: 'var(--text-primary)',
             fontWeight: 500,
-            fontSize: '1.1rem',
+            fontSize: '1.32rem',
             padding: '1rem',
             cursor: 'pointer',
             textAlign: 'left'
@@ -274,7 +274,7 @@ const Navbar = () => {
             border: 'none',
             color: 'var(--text-primary)',
             fontWeight: 500,
-            fontSize: '1.1rem',
+            fontSize: '1.32rem',
             padding: '1rem',
             cursor: 'pointer',
             textAlign: 'left'

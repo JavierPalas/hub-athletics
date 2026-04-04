@@ -95,7 +95,7 @@ const Unete = () => {
             <span style={{
               color: 'var(--accent-primary)',
               fontWeight: 600,
-              fontSize: '1.1rem',
+              fontSize: '1.32rem',
               letterSpacing: '0.15em',
               textTransform: 'uppercase'
             }}>
@@ -123,21 +123,22 @@ const Unete = () => {
                 gap: '1rem'
               }}>
                 <div style={{
-                  width: '48px',
-                  height: '48px',
+                  width: '64px',
+                  height: '64px',
+                  minWidth: '64px',
                   background: 'var(--accent-primary)',
-                  borderRadius: '6px',
+                  borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontWeight: 700,
-                  fontSize: '1.25rem'
+                  fontSize: '1.75rem'
                 }}>
                   1
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Rellena tus datos</div>
-                  <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Compártenos tu información de contacto</div>
+                  <div style={{ fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.4rem' }}>Rellena tus datos</div>
+                  <div style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Compártenos tu información de contacto</div>
                 </div>
               </div>
 
@@ -147,21 +148,22 @@ const Unete = () => {
                 gap: '1rem'
               }}>
                 <div style={{
-                  width: '48px',
-                  height: '48px',
+                  width: '64px',
+                  height: '64px',
+                  minWidth: '64px',
                   background: 'var(--accent-primary)',
-                  borderRadius: '6px',
+                  borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontWeight: 700,
-                  fontSize: '1.25rem'
+                  fontSize: '1.75rem'
                 }}>
                   2
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Exploración inicial</div>
-                  <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Analizamos tu situación y objetivos</div>
+                  <div style={{ fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.4rem' }}>Exploración inicial</div>
+                  <div style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Analizamos tu situación y objetivos</div>
                 </div>
               </div>
 
@@ -171,21 +173,22 @@ const Unete = () => {
                 gap: '1rem'
               }}>
                 <div style={{
-                  width: '48px',
-                  height: '48px',
+                  width: '64px',
+                  height: '64px',
+                  minWidth: '64px',
                   background: 'var(--accent-primary)',
-                  borderRadius: '6px',
+                  borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontWeight: 700,
-                  fontSize: '1.25rem'
+                  fontSize: '1.75rem'
                 }}>
                   3
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Valoramos si tu perfil encaja</div>
-                  <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Análisis de idoneidad con el perfil que trabajamos</div>
+                  <div style={{ fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.4rem' }}>Valoramos si tu perfil encaja</div>
+                  <div style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Análisis de idoneidad con el perfil que trabajamos</div>
                 </div>
               </div>
             </div>
@@ -208,7 +211,7 @@ const Unete = () => {
                   display: 'block',
                   marginBottom: '0.5rem',
                   fontWeight: 600,
-                  fontSize: '0.875rem',
+                  fontSize: '1.05rem',
                   color: 'var(--text-primary)',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
@@ -229,7 +232,7 @@ const Unete = () => {
                     border: '1px solid var(--border-subtle)',
                     borderRadius: '6px',
                     color: 'var(--text-primary)',
-                    fontSize: '1rem',
+                    fontSize: '1.20rem',
                     transition: 'border-color 0.3s ease'
                   }}
                   onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
@@ -242,7 +245,7 @@ const Unete = () => {
                   display: 'block',
                   marginBottom: '0.5rem',
                   fontWeight: 600,
-                  fontSize: '0.875rem',
+                  fontSize: '1.05rem',
                   color: 'var(--text-primary)',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
@@ -263,7 +266,7 @@ const Unete = () => {
                     border: '1px solid var(--border-subtle)',
                     borderRadius: '6px',
                     color: 'var(--text-primary)',
-                    fontSize: '1rem',
+                    fontSize: '1.20rem',
                     transition: 'border-color 0.3s ease'
                   }}
                   onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
@@ -276,7 +279,7 @@ const Unete = () => {
                   display: 'block',
                   marginBottom: '0.5rem',
                   fontWeight: 600,
-                  fontSize: '0.875rem',
+                  fontSize: '1.05rem',
                   color: 'var(--text-primary)',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
@@ -297,7 +300,7 @@ const Unete = () => {
                     border: '1px solid var(--border-subtle)',
                     borderRadius: '6px',
                     color: 'var(--text-primary)',
-                    fontSize: '1rem',
+                    fontSize: '1.20rem',
                     transition: 'border-color 0.3s ease'
                   }}
                   onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
@@ -324,7 +327,7 @@ const Unete = () => {
               </button>
 
               <p style={{
-                fontSize: '0.75rem',
+                fontSize: '0.90rem',
                 color: 'var(--text-muted)',
                 textAlign: 'center',
                 lineHeight: 1.5

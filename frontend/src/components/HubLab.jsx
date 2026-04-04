@@ -17,7 +17,7 @@ const HubLab = () => {
           <span style={{
             color: 'var(--accent-primary)',
             fontWeight: 600,
-            fontSize: '0.875rem',
+            fontSize: '1.05rem',
             letterSpacing: '0.15em',
             textTransform: 'uppercase'
           }}>
@@ -117,7 +117,7 @@ const HubLab = () => {
                   <CheckCircle2 size={22} color="#ffffff" />
                 </div>
                 <h4 className="heading-3" style={{
-                  fontSize: '1.25rem',
+                  fontSize: '1.50rem',
                   marginBottom: '0.75rem'
                 }}>
                   {benefit.title}
@@ -159,7 +159,7 @@ const HubLab = () => {
                 <CheckCircle2 size={22} color="#ffffff" />
               </div>
               <h4 className="heading-3" style={{
-                fontSize: '1.25rem',
+                fontSize: '1.50rem',
                 marginBottom: '0.75rem'
               }}>
                 {benefit.title}

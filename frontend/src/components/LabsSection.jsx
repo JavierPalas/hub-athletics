@@ -92,7 +92,7 @@ const LabsSection = () => {
                         maxWidth: '700px',
                         margin: '0 auto',
                         color: 'var(--text-secondary)',
-                        fontSize: '1.25rem'
+                        fontSize: '1.50rem'
                     }}>
                         Un método, una visión, una cultura aplicada al día a día.
                     </p>
@@ -229,7 +229,7 @@ const FlipCard = ({ lab, index, isVisible }) => {
 
                     {/* Description */}
                     <p style={{
-                        fontSize: '0.95rem',
+                        fontSize: '1.14rem',
                         lineHeight: 1.6,
                         color: 'var(--text-primary)', // Changed to primary for more brightness
                         maxWidth: '280px',
@@ -325,7 +325,7 @@ const FlipCard = ({ lab, index, isVisible }) => {
                             Head of {lab.title}
                         </h3>
                         <p style={{
-                            fontSize: '0.9rem',
+                            fontSize: '1.08rem',
                             color: 'var(--text-secondary)'
                         }}>
                             {lab.description}

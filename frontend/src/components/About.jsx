@@ -39,7 +39,7 @@ const About = () => {
               <span style={{
                 color: 'var(--accent-primary)',
                 fontWeight: 600,
-                fontSize: '1.1rem',
+                fontSize: '1.32rem',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase'
               }}>
