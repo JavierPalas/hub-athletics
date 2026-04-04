@@ -1,71 +1,48 @@
-# 📦 ARCHIVOS ZIP PARA HOSTINGER
+# Hub Athletics - Leer Primero
 
-## Archivos Creados
+Este proyecto esta compuesto por:
 
-### 1️⃣ `hostinger_frontend.zip`
+- `frontend/`: codigo fuente de la landing en React.
+- `backend_php/`: API PHP para captar leads y guardarlos en MySQL.
 
-**Ubicación:** `d:\Dropbox\0_Antigravity\hub-athletics-magenta\hostinger_frontend.zip`
+## Flujo real de despliegue
 
-**Qué contiene:** Todo el frontend compilado (HTML, CSS, JS, imágenes, favicon, etc.)
+1. Construir el frontend desde `frontend/` con `npm run build`.
+2. Subir el contenido generado de `frontend/build/` a la raiz de `public_html`.
+3. Crear la carpeta `public_html/api`.
+4. Subir el contenido de `backend_php/` dentro de `public_html/api`.
+5. Ejecutar `schema.sql` en MySQL o phpMyAdmin para crear la tabla `leads`.
 
-**Dónde subirlo en Hostinger:**
+## Estructura esperada en hosting
 
-- Descomprimir **directamente en la raíz** de `public_html`
-- NO crear subcarpeta, los archivos deben quedar así:
+```text
+public_html/
+|-- index.html
+|-- favicon.ico
+|-- static/
+`-- api/
+    |-- .htaccess
+    |-- db.php
+    |-- index.php
+    |-- leads.php
+    `-- schema.sql
+```
 
-  ```
-  public_html/
-  ├── index.html
-  ├── favicon.ico
-  ├── manifest.json
-  └── static/
-  ```
+## Configuracion recomendada
 
----
+- Frontend: `REACT_APP_BACKEND_URL=https://vibe.hub-athletics.com`
+- Backend:
+  - `DB_HOST`
+  - `DB_NAME`
+  - `DB_USERNAME`
+  - `DB_PASSWORD`
+  - `CORS_ALLOWED_ORIGINS`
 
-### 2️⃣ `hostinger_backend.zip`
+Si no defines variables de entorno en el backend, `db.php` usa valores por defecto pensados para entorno local.
 
-**Ubicación:** `d:\Dropbox\0_Antigravity\hub-athletics-magenta\hostinger_backend.zip`
+## Verificaciones rapidas
 
-**Qué contiene:**
-
-- `.htaccess` (configuración URLs)
-- `db.php` (conexión base de datos con tus credenciales)
-- `index.php` (API base)
-- `leads.php` (formulario + email)
-- `schema.sql` (crear tabla en phpMyAdmin)
-
-**Dónde subirlo en Hostinger:**
-
-1. Crear carpeta `public_html/api`
-2. Descomprimir el ZIP **dentro de** `public_html/api`
-3. Los archivos deben quedar así:
-
-   ```
-   public_html/api/
-   ├── .htaccess
-   ├── db.php
-   ├── index.php
-   ├── leads.php
-   └── schema.sql
-   ```
-
----
-
-## 🚀 PASOS RÁPIDOS
-
-1. **Borrar** todo de `public_html` en Hostinger
-2. **Subir y descomprimir** `hostinger_frontend.zip` en `public_html`
-3. **Crear** carpeta `public_html/api`
-4. **Subir y descomprimir** `hostinger_backend.zip` en `public_html/api`
-5. **phpMyAdmin**: ejecutar el SQL de `schema.sql` (está dentro del ZIP backend)
-
----
-
-## ✅ Verificar
-
-- Web: `https://tudominio.com`
-- API: `https://tudominio.com/api`
-- Formulario: rellenar y esperar email en `palas.javier@gmail.com`
-
-**¡LISTO!** 🎉
+- Web: `https://vibe.hub-athletics.com`
+- API base: `https://vibe.hub-athletics.com/api`
+- Endpoint de leads: `POST https://vibe.hub-athletics.com/api/leads`
+- Formulario: enviar nombre, email y telefono y comprobar alta en base de datos y email de aviso

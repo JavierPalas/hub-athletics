@@ -5,5 +5,6 @@ CREATE TABLE IF NOT EXISTS `leads` (
   `phone` varchar(50) DEFAULT NULL,
   `source` varchar(50) DEFAULT 'web_form',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_leads_email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
