@@ -1,8 +1,16 @@
 <?php
 // db.php - Configuración de base de datos con CORS completo
 
-// CORS Headers - Permitir todas las solicitudes
-header("Access-Control-Allow-Origin: *");
+// CORS Headers - Solo permitir el dominio de producción
+$allowed_origins = [
+    "https://vibe.hub-athletics.com"
+];
+$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+if (in_array($origin, $allowed_origins)) {
+    header("Access-Control-Allow-Origin: " . $origin);
+} else {
+    header("Access-Control-Allow-Origin: https://vibe.hub-athletics.com");
+}
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 header("Access-Control-Max-Age: 86400");
