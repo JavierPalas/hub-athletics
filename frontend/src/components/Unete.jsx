@@ -232,16 +232,15 @@ const Unete = () => {
                 }}>
                   Nombre completo
                 </label>
-                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Tu nombre" required style={{
-                  width: '100%',
-                  padding: '1rem',
-                  background: 'var(--bg-primary)',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: '6px',
-                  color: 'var(--text-primary)',
-                  fontSize: '1.20rem',
-                  transition: 'border-color 0.3s ease'
-                }}
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Tu nombre"
+                  required
+                  className="form-input"
                   onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
                   onBlur={(e) => e.target.style.borderColor = 'var(--border-subtle)'}
                 />
@@ -259,16 +258,15 @@ const Unete = () => {
                 }}>
                   Correo electronico
                 </label>
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="tu@email.com" required style={{
-                  width: '100%',
-                  padding: '1rem',
-                  background: 'var(--bg-primary)',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: '6px',
-                  color: 'var(--text-primary)',
-                  fontSize: '1.20rem',
-                  transition: 'border-color 0.3s ease'
-                }}
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="tu@email.com"
+                  required
+                  className="form-input"
                   onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
                   onBlur={(e) => e.target.style.borderColor = 'var(--border-subtle)'}
                 />
@@ -286,16 +284,15 @@ const Unete = () => {
                 }}>
                   Telefono
                 </label>
-                <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+34 600 000 000" required style={{
-                  width: '100%',
-                  padding: '1rem',
-                  background: 'var(--bg-primary)',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: '6px',
-                  color: 'var(--text-primary)',
-                  fontSize: '1.20rem',
-                  transition: 'border-color 0.3s ease'
-                }}
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+34 600 000 000"
+                  required
+                  className="form-input"
                   onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
                   onBlur={(e) => e.target.style.borderColor = 'var(--border-subtle)'}
                 />

@@ -20,6 +20,34 @@ function sendResponse($success, $message, $data = null, $httpCode = 200)
     exit;
 }
 
+function getMailConfig($key, $default)
+{
+    $value = getenv($key);
+    return $value !== false && $value !== '' ? $value : $default;
+}
+
+function sendMailMessage($to, $subject, $message_body, $replyTo, $contextLabel)
+{
+    $fromEmail = getMailConfig('MAIL_FROM_ADDRESS', 'no-reply@hub-athletics.com');
+    $fromName = getMailConfig('MAIL_FROM_NAME', 'HUB Athletics');
+
+    $headers = [];
+    $headers[] = 'From: ' . $fromName . ' <' . $fromEmail . '>';
+    $headers[] = 'Reply-To: ' . $replyTo;
+    $headers[] = 'X-Mailer: PHP/' . phpversion();
+    $headers[] = 'MIME-Version: 1.0';
+    $headers[] = 'Content-Type: text/plain; charset=UTF-8';
+    $headers[] = 'Content-Transfer-Encoding: 8bit';
+
+    $sent = @mail($to, $subject, $message_body, implode("\r\n", $headers));
+
+    if (!$sent) {
+        error_log('Mail send failed [' . $contextLabel . '] to ' . $to . ' using from ' . $fromEmail);
+    }
+
+    return $sent;
+}
+
 function sendNotificationEmail($name, $email, $phone, $created_at)
 {
     $admin_email = 'palas.javier@gmail.com';
@@ -31,15 +59,20 @@ function sendNotificationEmail($name, $email, $phone, $created_at)
     $message_body .= 'Telefono: ' . $phone . "\n";
     $message_body .= 'Fecha: ' . $created_at . "\n";
 
-    $headers = [];
-    $headers[] = 'From: HUB Athletics <no-reply@hub-athletics.com>';
-    $headers[] = 'Reply-To: ' . $email;
-    $headers[] = 'X-Mailer: PHP/' . phpversion();
-    $headers[] = 'MIME-Version: 1.0';
-    $headers[] = 'Content-Type: text/plain; charset=UTF-8';
-    $headers[] = 'Content-Transfer-Encoding: 8bit';
+    return sendMailMessage($admin_email, $subject, $message_body, $email, 'admin_notification');
+}
 
-    return @mail($admin_email, $subject, $message_body, implode("\r\n", $headers));
+function sendWelcomeEmail($name, $email)
+{
+    $subject = '=?UTF-8?B?' . base64_encode('Gracias por interesarte por HUB Athletics') . '?=';
+
+    $message_body = "Hola " . $name . ",\n\n";
+    $message_body .= "Gracias por interesarte por nosotros.\n";
+    $message_body .= "Hemos recibido tu informacion correctamente.\n\n";
+    $message_body .= "Saludos,\n";
+    $message_body .= "The Hub Team\n";
+
+    return sendMailMessage($email, $subject, $message_body, 'palas.javier@gmail.com', 'welcome_email');
 }
 
 function normalizeInput($value)
@@ -110,6 +143,7 @@ if ($method === 'POST') {
         }
 
         sendNotificationEmail($name, $email, $phone, $created_at);
+        sendWelcomeEmail($name, $email);
 
         sendResponse(
             true,
